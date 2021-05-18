@@ -1,7 +1,7 @@
 package edu.citytech.cst.s23253396.merged_apps.final_grade.controllers;
 
-import edu.citytech.cst.s23253396.merged_apps.final_grade.services.GradeCalculatorServiceImpl;
-import edu.citytech.cst.s23253396.merged_apps.final_grade.services.impl.GradeCalculatorService;
+import edu.citytech.cst.s23253396.merged_apps.final_grade.services.impl.GradeCalculatorServiceImpl;
+import edu.citytech.cst.s23253396.merged_apps.final_grade.services.GradeCalculatorService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -51,7 +51,23 @@ public class GradeCalculatorViewController {
 //        }
 
         try {
+
+            if (Float.parseFloat(this.txtScore.getText())  > 100) {
+                this.status.setText("Please enter a number less than 100!");
+                this.txtGpa.clear();
+                this.txtLetterGrade.clear();
+                return;
+            }
+
+            if (Float.parseFloat(this.txtScore.getText()) < 0) {
+                this.status.setText("Please enter a number greater than 0!");
+                this.txtGpa.clear();
+                this.txtLetterGrade.clear();
+                return;
+            }
+
             Float gpa = this.calculatorService.calculateGpa(Float.parseFloat(txtScore.getText()));
+
             String letterGrade = this.calculatorService.calculateLetterGrade(gpa);
 
             this.txtGpa.setText(gpa.toString());

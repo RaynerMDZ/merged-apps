@@ -17,7 +17,7 @@
 
 
     <build>
-        <finalName>Purchases-Client_Mendez.Rayner</finalName>
+        <finalName>merged-apps-client_mendez_rayner</finalName>
         <resources>
         </resources>
         <plugins>

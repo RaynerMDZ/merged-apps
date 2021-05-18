@@ -1,6 +1,6 @@
-package edu.citytech.cst.s23253396.merged_apps.final_grade.services;
+package edu.citytech.cst.s23253396.merged_apps.final_grade.services.impl;
 
-import edu.citytech.cst.s23253396.merged_apps.final_grade.services.impl.GradeCalculatorService;
+import edu.citytech.cst.s23253396.merged_apps.final_grade.services.GradeCalculatorService;
 
 public class GradeCalculatorServiceImpl implements GradeCalculatorService {
 
