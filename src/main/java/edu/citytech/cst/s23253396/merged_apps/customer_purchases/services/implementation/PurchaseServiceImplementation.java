@@ -10,7 +10,7 @@ import java.net.*;
 
 public class PurchaseServiceImplementation implements PurchaseService {
 
-    private final String url = "http://localhost:3613/customer/api/customers";
+    private final String url = "http://localhost:3613/customer/api/query/";
 
     @Override
     public Purchases getPurchaseById(int id, Label status) {
@@ -22,7 +22,7 @@ public class PurchaseServiceImplementation implements PurchaseService {
             return null;
         }
 
-        String newUrl = this.url + "/" + id;
+        String newUrl = this.url + id;
 
         ObjectMapper mapper = new ObjectMapper();
         Purchases purchase = null;
@@ -32,8 +32,10 @@ public class PurchaseServiceImplementation implements PurchaseService {
             
             purchase = mapper.readValue(connection.getInputStream(), Purchases.class);
         } catch (MalformedURLException e) {
+            e.printStackTrace();
             status.setText("No data was found for: " + newUrl);
         } catch (IOException e) {
+            e.printStackTrace();
             status.setText("No data was found for: " + newUrl);
         }
 

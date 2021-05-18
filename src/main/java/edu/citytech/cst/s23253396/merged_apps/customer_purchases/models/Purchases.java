@@ -23,4 +23,5 @@ public class Purchases implements Serializable {
     private String description;
     private List<Item> items;
     private Location location;
+    private Reward reward;
 }

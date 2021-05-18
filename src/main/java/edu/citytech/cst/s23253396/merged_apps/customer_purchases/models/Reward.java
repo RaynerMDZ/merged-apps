@@ -5,16 +5,12 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.io.Serializable;
-
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class ShortDate implements Serializable {
+public class Reward {
 
-    private Long day;
-    private Long month;
-    private Long year;
-    private String dayName;
+    private Float amount;
+    private ShortDate date;
 }
