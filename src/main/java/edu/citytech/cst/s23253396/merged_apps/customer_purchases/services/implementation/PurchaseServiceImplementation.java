@@ -1,8 +1,8 @@
-package edu.citytech.cst.s23253396.merged_apps.purchases.services.implementation;
+package edu.citytech.cst.s23253396.merged_apps.customer_purchases.services.implementation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.citytech.cst.s23253396.merged_apps.purchases.models.Purchases;
-import edu.citytech.cst.s23253396.merged_apps.purchases.services.PurchaseService;
+import edu.citytech.cst.s23253396.merged_apps.customer_purchases.models.Purchases;
+import edu.citytech.cst.s23253396.merged_apps.customer_purchases.services.PurchaseService;
 import javafx.scene.control.Label;
 
 import java.io.IOException;

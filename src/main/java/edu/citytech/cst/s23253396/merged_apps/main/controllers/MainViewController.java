@@ -46,4 +46,14 @@ public class MainViewController {
 
         this.borderPane.setCenter(mainScreen);
     }
+
+    @FXML
+    void showCustomerPurchases(ActionEvent event) throws IOException {
+        System.out.println("Customer Purchases Selected!");
+
+        String name = "/views/customer_purchases/mainView.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(name));
+        AnchorPane mainScreen = loader.load();
+        this.borderPane.setCenter(mainScreen);
+    }
 }

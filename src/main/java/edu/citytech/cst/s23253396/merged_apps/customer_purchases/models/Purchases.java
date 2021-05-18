@@ -1,6 +1,5 @@
-package edu.citytech.cst.s23253396.merged_apps.purchases.models;
+package edu.citytech.cst.s23253396.merged_apps.customer_purchases.models;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

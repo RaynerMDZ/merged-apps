@@ -1,4 +1,4 @@
-package edu.citytech.cst.s23253396.merged_apps.purchases;
+package edu.citytech.cst.s23253396.merged_apps.customer_purchases;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,9 +14,9 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("Rayner Mendez - 23253396");
+        stage.setTitle("Rayner Mendez - Customer Purchases");
 
-        String name = "/views/mainView.fxml";
+        String name = "/views/customer_purchases/mainView.fxml";
 
         Parent root = FXMLLoader.load(getClass().getResource(name));
         stage.setScene(new Scene(root));

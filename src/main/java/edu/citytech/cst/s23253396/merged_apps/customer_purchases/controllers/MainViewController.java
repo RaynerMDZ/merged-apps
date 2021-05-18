@@ -1,9 +1,9 @@
-package edu.citytech.cst.s23253396.merged_apps.purchases.controllers;
+package edu.citytech.cst.s23253396.merged_apps.customer_purchases.controllers;
 
-import edu.citytech.cst.s23253396.merged_apps.purchases.models.Item;
-import edu.citytech.cst.s23253396.merged_apps.purchases.models.Purchases;
-import edu.citytech.cst.s23253396.merged_apps.purchases.services.PurchaseService;
-import edu.citytech.cst.s23253396.merged_apps.purchases.services.implementation.PurchaseServiceImplementation;
+import edu.citytech.cst.s23253396.merged_apps.customer_purchases.models.Item;
+import edu.citytech.cst.s23253396.merged_apps.customer_purchases.models.Purchases;
+import edu.citytech.cst.s23253396.merged_apps.customer_purchases.services.PurchaseService;
+import edu.citytech.cst.s23253396.merged_apps.customer_purchases.services.implementation.PurchaseServiceImplementation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

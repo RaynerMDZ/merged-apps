@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="656.0" prefWidth="502.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.cst.s23253396.merged_apps.customer_purchases.controllers.MainViewController">
+   <children>
+      <TextField fx:id="searchId" layoutX="94.0" layoutY="34.0" prefHeight="27.0" prefWidth="56.0" />
+      <Label layoutX="30.0" layoutY="39.0" text="Search ID:" />
+      <Label layoutX="30.0" layoutY="80.0" text="Data for Customer ID:" />
+      <Label fx:id="id" layoutX="155.0" layoutY="80.0" text="ID" />
+      <Label layoutX="30.0" layoutY="117.0" text="Total Price is:" />
+      <Label fx:id="totalPrice" layoutX="107.0" layoutY="117.0" text="00.0" />
+      <TableView fx:id="purchasesTable" layoutX="30.0" layoutY="156.0" prefHeight="448.0" prefWidth="442.0">
+        <columns>
+            <TableColumn prefWidth="100.0" text="Unit Price">
+                <cellValueFactory><PropertyValueFactory property="unitPrice" /></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="Quantity">
+                <cellValueFactory><PropertyValueFactory property="quantity" /></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="141.0" text="Name">
+                <cellValueFactory><PropertyValueFactory property="name" /></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="Total Cost">
+                <cellValueFactory><PropertyValueFactory property="totalCost" /></cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Label fx:id="connectionStatus" layoutX="30.0" layoutY="622.0" text="Connection status" />
+      <Button fx:id="search" onAction="#search" layoutX="415.0" layoutY="112.0" mnemonicParsing="false" text="Search" />
+   </children>
+</AnchorPane>

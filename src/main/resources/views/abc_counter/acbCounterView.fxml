@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="749.0" prefWidth="709.0" stylesheets="@../../css/abc-format.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.cst.s23253396.merged_apps.abc_counter.controllers.AbcCounterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="749.0" prefWidth="709.0" stylesheets="@../../css/abc-format.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.cst.s23253396.merged_apps.abc_counter.controllers.AbcCounterController">
    <Label fx:id="title" alignment="CENTER" layoutX="19.0" layoutY="21.0" text="ABC, 123 Counter" />
    <RadioButton fx:id="rbABC" layoutX="47.0" layoutY="94.0" mnemonicParsing="false" onAction="#selectABC" text="ABC">
       <toggleGroup>

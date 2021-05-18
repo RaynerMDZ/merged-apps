@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Launcher extends Application {
 
@@ -19,7 +20,7 @@ public class Launcher extends Application {
         stage.setTitle("Rayner Mendez - 23253396");
 
         String name = "/views/main/mainView.fxml";
-        Parent root = FXMLLoader.load(getClass().getResource(name));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(name)));
         stage.setScene(new Scene(root));
         stage.setResizable(true);
         stage.show();

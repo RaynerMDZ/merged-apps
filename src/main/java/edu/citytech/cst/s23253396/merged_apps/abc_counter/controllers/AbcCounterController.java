@@ -3,6 +3,7 @@ package edu.citytech.cst.s23253396.merged_apps.abc_counter.controllers;
 import edu.citytech.cst.s23253396.merged_apps.abc_counter.enums.AbcSelectBoxChoice;
 import edu.citytech.cst.s23253396.merged_apps.abc_counter.enums.NumberSelectBoxChoice;
 import edu.citytech.cst.s23253396.merged_apps.abc_counter.services.AbcCounterService;
+import edu.citytech.cst.s23253396.merged_apps.abc_counter.services.AbcCounterServiceImpl;
 import edu.citytech.cst.s23253396.merged_apps.abc_counter.services.AbcCounterServiceJsonImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,10 +17,8 @@ import java.util.ResourceBundle;
 
 public class AbcCounterController implements Initializable {
 
-    @FXML
-    private AnchorPane anchorPane;
-
-    private final AbcCounterService counterService = new AbcCounterServiceJsonImpl();
+    private final AbcCounterService jsonService = new AbcCounterServiceJsonImpl();
+    private final AbcCounterService guiService = new AbcCounterServiceImpl();
 
     private int counter = 0;
 
@@ -81,7 +80,7 @@ public class AbcCounterController implements Initializable {
         this.choiceBoxABC();
 
         // Iterate over the list with the alphabet
-        for (Character abc : this.counterService.countABC()) {
+        for (Character abc : this.jsonService.countABC()) {
             var label = new Label(abc.toString());
             // Add style to the label.
             label.getStyleClass().add("displayLabel");
@@ -98,7 +97,7 @@ public class AbcCounterController implements Initializable {
         this.choiceBoxABC();
 
         // Iterate over the list with the alphabet
-        for (Character abc : this.counterService.countCBA()) {
+        for (Character abc : this.jsonService.countCBA()) {
             var label = new Label(abc.toString());
             // Add style to the label.
             label.getStyleClass().add("displayLabel");
@@ -116,7 +115,7 @@ public class AbcCounterController implements Initializable {
 
         // Iterate over the list with the alphabet
 
-        this.counterService.countAaBbCc().forEach((string) -> {
+        this.jsonService.countAaBbCc().forEach((string) -> {
             var label = new Label(string);
             // Add style to the label.
             label.getStyleClass().add("displayLabel-bigger");
@@ -145,7 +144,7 @@ public class AbcCounterController implements Initializable {
                 currentLabel.getStyleClass().clear();
 
                 if (this.tgCounter.getSelectedToggle().equals(this.rbAaBbCb)) {
-                    isVowel = this.counterService.isVowelAaBbCc(((Label) currentLabel).getText());
+                    isVowel = this.guiService.isVowelAaBbCc(((Label) currentLabel).getText());
 
                     currentLabel.getStyleClass().add("displayLabel-bigger");
 
@@ -155,7 +154,7 @@ public class AbcCounterController implements Initializable {
                     }
 
                 } else {
-                    isVowel = this.counterService.isVowel(((Label) currentLabel).getText());
+                    isVowel = this.guiService.isVowel(((Label) currentLabel).getText());
                     currentLabel.getStyleClass().add("displayLabel");
                     if (isVowel) {
                         currentLabel.getStyleClass().add("isVowel");
@@ -175,7 +174,7 @@ public class AbcCounterController implements Initializable {
                 currentLabel.getStyleClass().clear();
 
                 if (this.tgCounter.getSelectedToggle().equals(this.rbAaBbCb)) {
-                    isConsonant = this.counterService.isConsonantAaBbCc(((Label) currentLabel).getText());
+                    isConsonant = this.guiService.isConsonantAaBbCc(((Label) currentLabel).getText());
 
                     currentLabel.getStyleClass().add("displayLabel-bigger");
 
@@ -185,7 +184,7 @@ public class AbcCounterController implements Initializable {
                     }
 
                 } else {
-                    isConsonant = this.counterService.isConsonant(((Label) currentLabel).getText());
+                    isConsonant = this.guiService.isConsonant(((Label) currentLabel).getText());
                     currentLabel.getStyleClass().add("displayLabel");
 
                     if (isConsonant) {
@@ -225,7 +224,7 @@ public class AbcCounterController implements Initializable {
         this.choiceBox123();
 
         // Iterate over 1-50.
-        for (Integer number : counterService.count123()) {
+        for (Integer number : jsonService.count123()) {
             var label = new Label(number.toString());
             // Add style to the label.
             label.getStyleClass().add("displayLabel-123");
@@ -241,7 +240,7 @@ public class AbcCounterController implements Initializable {
         this.count.setText("Count is: 0");
         this.choiceBox123();
 
-        for (Integer number : counterService.count321()) {
+        for (Integer number : jsonService.count321()) {
             var label = new Label(number.toString());
             // Add style to the label.
             label.getStyleClass().add("displayLabel-123");
@@ -257,7 +256,7 @@ public class AbcCounterController implements Initializable {
         this.count.setText("Count is: 0");
         this.choiceBox123();
 
-        for (Integer number : counterService.count369()) {
+        for (Integer number : jsonService.count369()) {
             var label = new Label(number.toString());
             // Add style to the label.
             label.getStyleClass().add("displayLabel-123");
@@ -282,7 +281,7 @@ public class AbcCounterController implements Initializable {
 
             this.fpCounter.getChildren().forEach(currentLabel -> {
 
-                boolean isEven = this.counterService.isEven(Integer.parseInt(((Label) currentLabel).getText()));
+                boolean isEven = this.guiService.isEven(Integer.parseInt(((Label) currentLabel).getText()));
 
                 currentLabel.getStyleClass().clear();
                 currentLabel.getStyleClass().add("displayLabel-123");
@@ -298,7 +297,7 @@ public class AbcCounterController implements Initializable {
 
         if (selectedItem.equalsIgnoreCase(NumberSelectBoxChoice.ODD.toString())) {
             this.fpCounter.getChildren().forEach(currentLabel -> {
-                boolean isOdd = this.counterService.isOdd(Integer.parseInt(((Label) currentLabel).getText()));
+                boolean isOdd = this.guiService.isOdd(Integer.parseInt(((Label) currentLabel).getText()));
 
                 currentLabel.getStyleClass().clear();
                 currentLabel.getStyleClass().add("displayLabel-123");
@@ -315,7 +314,7 @@ public class AbcCounterController implements Initializable {
 
         if (selectedItem.equalsIgnoreCase(NumberSelectBoxChoice.EVERY_6.toString())) {
             this.fpCounter.getChildren().forEach(currentLabel -> {
-                boolean isDivisibleBy6 = this.counterService.isDivisibleBy6(Integer.parseInt(((Label) currentLabel).getText()));
+                boolean isDivisibleBy6 = this.guiService.isDivisibleBy6(Integer.parseInt(((Label) currentLabel).getText()));
 
                 currentLabel.getStyleClass().clear();
                 currentLabel.getStyleClass().add("displayLabel-123");
@@ -333,7 +332,7 @@ public class AbcCounterController implements Initializable {
         if (selectedItem.equalsIgnoreCase(NumberSelectBoxChoice.CONTAINS_7.toString())) {
 
             this.fpCounter.getChildren().forEach(currentLabel -> {
-                boolean contains7 = this.counterService.contains7(Integer.parseInt(((Label) currentLabel).getText()));
+                boolean contains7 = this.guiService.contains7(Integer.parseInt(((Label) currentLabel).getText()));
 
                 currentLabel.getStyleClass().clear();
                 currentLabel.getStyleClass().add("displayLabel-123");
@@ -365,9 +364,5 @@ public class AbcCounterController implements Initializable {
         this.count.setText("Count is: 0");
         this.choiceBox.getItems().clear();
         this.fpCounter.getChildren().clear();
-    }
-
-    public AnchorPane getAnchorPane() {
-        return anchorPane;
     }
 }

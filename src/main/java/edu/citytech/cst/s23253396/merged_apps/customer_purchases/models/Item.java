@@ -1,4 +1,4 @@
-package edu.citytech.cst.s23253396.merged_apps.purchases.models;
+package edu.citytech.cst.s23253396.merged_apps.customer_purchases.models;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
