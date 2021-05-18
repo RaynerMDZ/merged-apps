@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.cst.s23253396.merged_apps.main.controllers.MainViewController">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="1000.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Merged Apps">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showAbcCounter" text="ABC Counter" />
+                  <MenuItem mnemonicParsing="false" onAction="#showCustomerChart" text="Customer Chart" />
+                  <MenuItem mnemonicParsing="false" onAction="#showFinalGrade" text="Final Grade" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit" />
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <BorderPane fx:id="borderPane" layoutX="13.0" layoutY="40.0" prefHeight="750.0" prefWidth="975.0" />
+   </children>
+</AnchorPane>

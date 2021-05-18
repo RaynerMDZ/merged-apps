@@ -1,0 +1,27 @@
+package edu.citytech.cst.s23253396.merged_apps.purchases.models;
+
+import com.google.gson.annotations.SerializedName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.io.Serializable;
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
+public class Purchases implements Serializable {
+
+    private Long _id;
+    private String customerId;
+    private Long totalItems;
+    private Long totalPrice;
+    private ShortDate shortDate;
+    private String purchaseDate;
+    private String description;
+    private List<Item> items;
+    private Location location;
+}
