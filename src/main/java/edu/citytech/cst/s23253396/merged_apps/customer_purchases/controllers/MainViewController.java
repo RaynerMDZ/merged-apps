@@ -35,6 +35,9 @@ public class MainViewController {
     private Button search;
 
     @FXML
+    private Label rewards;
+
+    @FXML
     void search(ActionEvent event) {
 
         this.purchasesTable.getItems().clear();
@@ -56,6 +59,10 @@ public class MainViewController {
         if (purchase != null) {
             this.id.setText(purchase.getCustomerId());
             this.totalPrice.setText("$"+ Double.parseDouble(purchase.getTotalPrice().toString()));
+
+            if (purchase.getReward() != null) {
+                this.rewards.setText("$"+ Double.parseDouble(purchase.getReward().getAmount().toString()));
+            }
 
             purchases.addAll(purchase.getItems());
         }
