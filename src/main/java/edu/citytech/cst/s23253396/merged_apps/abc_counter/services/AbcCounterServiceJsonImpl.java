@@ -2,6 +2,10 @@ package edu.citytech.cst.s23253396.merged_apps.abc_counter.services;
 
 import com.jbbwebsolutions.http.utility.JSONGet;
 
+import java.io.IOException;
+import java.net.ConnectException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,71 +29,139 @@ public class AbcCounterServiceJsonImpl implements AbcCounterService {
 
     @Override
     public List<Character> countABC() {
-        return Arrays.asList(JSONGet.submitGet(this.MODE_ABC, Character[].class));
+        if (this.getConnection()) {
+            return Arrays.asList(JSONGet.submitGet(this.MODE_ABC, Character[].class));
+        }
+
+        throw new RuntimeException("Connection for: " + this.MODE_ABC + " not available!");
     }
 
     @Override
     public List<Character> countCBA() {
-        return Arrays.asList(JSONGet.submitGet(this.MODE_CBA, Character[].class));
+        if (this.getConnection()) {
+            return Arrays.asList(JSONGet.submitGet(this.MODE_CBA, Character[].class));
+        }
+
+        throw new RuntimeException("Connection for: " + this.MODE_CBA+ " not available!");
     }
 
     @Override
     public List<String> countAaBbCc() {
-        return Arrays.asList(JSONGet.submitGet(this.MODE_AaBbCc, String[].class));
+        if (this.getConnection()) {
+            return Arrays.asList(JSONGet.submitGet(this.MODE_AaBbCc, String[].class));
+        }
+
+        throw new RuntimeException("Connection for: " + this.MODE_AaBbCc + " not available!");
     }
 
     @Override
     public List<Integer> count123() {
-        return Arrays.asList(JSONGet.submitGet(this.MODE_123, Integer[].class));
+        if (this.getConnection()) {
+            return Arrays.asList(JSONGet.submitGet(this.MODE_123, Integer[].class));
+        }
+
+        throw new RuntimeException("Connection for: " + this.MODE_123 + " not available!");
     }
 
     @Override
     public List<Integer> count321() {
-        return Arrays.asList(JSONGet.submitGet(this.MODE_321, Integer[].class));
+        if (this.getConnection()) {
+            return Arrays.asList(JSONGet.submitGet(this.MODE_321, Integer[].class));
+        }
+
+        throw new RuntimeException("Connection for: " + this.MODE_321 + " not available!");
     }
 
     @Override
     public List<Integer> count369() {
-        return Arrays.asList(JSONGet.submitGet(this.MODE_369, Integer[].class));
+        if (this.getConnection()) {
+            return Arrays.asList(JSONGet.submitGet(this.MODE_369, Integer[].class));
+        }
+
+        throw new RuntimeException("Connection for: " + this.MODE_369 + " not available!");
     }
 
     @Override
     public boolean isVowel(String string) {
-        return JSONGet.submitGet(this.IS_VOWEL + string, boolean.class);
+        if (this.getConnection()) {
+            return JSONGet.submitGet(this.IS_VOWEL + string, boolean.class);
+        }
+
+        throw new RuntimeException("Connection for: " + this.IS_VOWEL + " not available!");
     }
 
     @Override
     public boolean isVowelAaBbCc(String string) {
-        return JSONGet.submitGet(this.IS_VOWEL_AaBbCc + string, boolean.class);
+        if (this.getConnection()) {
+            return JSONGet.submitGet(this.IS_VOWEL_AaBbCc + string, boolean.class);
+        }
+
+        throw new RuntimeException("Connection for: " + this.IS_VOWEL_AaBbCc + " not available!");
     }
 
     @Override
     public boolean isConsonant(String string) {
-        return JSONGet.submitGet(this.IS_CONSONANT + string, boolean.class);
+        if (this.getConnection()) {
+            return JSONGet.submitGet(this.IS_CONSONANT + string, boolean.class);
+        }
+
+        throw new RuntimeException("Connection for: " + this.IS_CONSONANT + " not available!");
     }
 
     @Override
     public boolean isConsonantAaBbCc(String string) {
-        return JSONGet.submitGet(this.IS_CONSONANT_AaBbCc + string, boolean.class);
+        if (this.getConnection()) {
+            return JSONGet.submitGet(this.IS_CONSONANT_AaBbCc + string, boolean.class);
+        }
+
+        throw new RuntimeException("Connection for: " + this.IS_CONSONANT_AaBbCc + " not available!");
     }
 
     @Override
     public boolean isEven(int integer) {
-        return JSONGet.submitGet(this.IS_EVEN + integer, boolean.class);
+        if (this.getConnection()) {
+            return JSONGet.submitGet(this.IS_EVEN + integer, boolean.class);
+        }
+
+
+        throw new RuntimeException("Connection for: " + this.IS_EVEN + " not available!");
     }
 
     @Override
     public boolean isOdd(int integer) {
-        return JSONGet.submitGet(this.IS_ODD + integer, boolean.class);
+        if (this.getConnection()) {
+            return JSONGet.submitGet(this.IS_ODD + integer, boolean.class);
+        }
+
+        throw new RuntimeException("Connection for: " + this.IS_ODD + " not available!");
     }
 
     @Override
     public boolean isDivisibleBy6(int integer) {
-        return JSONGet.submitGet(this.IS_DIVISIBLE_BY_6 + integer, boolean.class);
+        if (this.getConnection()) {
+            return JSONGet.submitGet(this.IS_DIVISIBLE_BY_6 + integer, boolean.class);
+        }
+
+        throw new RuntimeException("Connection for: " + this.IS_DIVISIBLE_BY_6 + " not available!");
     }
 
     @Override
     public boolean contains7(int integer) {
-        return JSONGet.submitGet(this.CONTAINS_7 + integer, boolean.class);
+        if (this.getConnection()) {
+            return JSONGet.submitGet(this.CONTAINS_7 + integer, boolean.class);
+        }
+
+        throw new RuntimeException("Connection for: " + this.CONTAINS_7 + " not available!");
+    }
+
+    private boolean getConnection() {
+        try {
+            Socket socket = new Socket("localhost", 3613);
+            return true;
+        } catch (ConnectException | UnknownHostException e) {
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
     }
 }

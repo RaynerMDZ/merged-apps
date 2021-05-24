@@ -7,7 +7,6 @@ import edu.citytech.cst.s23253396.merged_apps.customer_purchases.services.implem
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -32,13 +31,23 @@ public class MainViewController {
     private TableView<Item> purchasesTable;
 
     @FXML
-    private Button search;
-
-    @FXML
     private Label rewards;
 
     @FXML
+    private Label taxPreviewLabel;
+
+    @FXML
+    private Label taxUpdateLabel;
+
+    @FXML
+    private Label rewardsLabel;
+
+    @FXML
     void search(ActionEvent event) {
+
+        this.taxPreviewLabel.setText("0.00");
+        this.rewardsLabel.setText("0.00");
+        this.taxUpdateLabel.setText("");
 
         this.purchasesTable.getItems().clear();
         this.id.setText("Id");
@@ -66,6 +75,45 @@ public class MainViewController {
 
             purchases.addAll(purchase.getItems());
         }
+    }
+
+    @FXML
+    void previewTax(ActionEvent event) {
+        if (this.searchId.getText().equalsIgnoreCase("") || this.searchId.getText() == null) {
+            connectionStatus.setText("Please select an id first.");
+            return;
+        }
+
+        Float taxPreview = this.purchaseService.previewTax(Long.parseLong(this.searchId.getText()));
+
+        this.taxPreviewLabel.setText(taxPreview.toString());
+    }
+
+    @FXML
+    void updateRewards(ActionEvent event) {
+
+        this.rewardsLabel.setText("0.00");
+
+        if (this.searchId.getText().equalsIgnoreCase("") || this.searchId.getText() == null) {
+            connectionStatus.setText("Please select an id first.");
+            return;
+        }
+
+        Float reward = this.purchaseService.updateRewards(Long.parseLong(this.searchId.getText()));
+
+        this.rewardsLabel.setText(reward.toString());
+    }
+
+    @FXML
+    void updateTax(ActionEvent event) {
+        if (this.searchId.getText().equalsIgnoreCase("") || this.searchId.getText() == null) {
+            connectionStatus.setText("Please select an id first.");
+            return;
+        }
+
+        Float updateTax = this.purchaseService.updateTax(Long.parseLong(this.searchId.getText()));
+
+        this.taxUpdateLabel.setText(updateTax.toString());
     }
 
     private boolean isNumeric(String str) {

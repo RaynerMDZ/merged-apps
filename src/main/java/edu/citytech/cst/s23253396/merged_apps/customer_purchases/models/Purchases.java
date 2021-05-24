@@ -24,4 +24,5 @@ public class Purchases implements Serializable {
     private List<Item> items;
     private Location location;
     private Reward reward;
+    private Float taxPaid;
 }
