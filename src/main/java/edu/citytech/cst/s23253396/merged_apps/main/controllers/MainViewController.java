@@ -56,4 +56,14 @@ public class MainViewController {
         AnchorPane mainScreen = loader.load();
         this.borderPane.setCenter(mainScreen);
     }
+
+    @FXML
+    void showFinalExam(ActionEvent event) throws IOException {
+        System.out.println("Final Exam Selected!");
+
+        String name = "/views/final_exam/mainView.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(name));
+        AnchorPane mainScreen = loader.load();
+        this.borderPane.setCenter(mainScreen);
+    }
 }

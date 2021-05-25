@@ -16,6 +16,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#showCustomerChart" text="Customer Chart" />
                   <MenuItem mnemonicParsing="false" onAction="#showFinalGrade" text="Final Grade" />
                   <MenuItem mnemonicParsing="false" onAction="#showCustomerPurchases" text="Customer Purchases" />
+                  <MenuItem mnemonicParsing="false" onAction="#showFinalExam" text="Final Exam" />
                </items>
           </Menu>
         </menus>
