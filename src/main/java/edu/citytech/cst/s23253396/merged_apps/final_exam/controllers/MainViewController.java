@@ -1,8 +1,8 @@
-package edu.citytech.cst.s23253396.final_exam.controllers;
+package edu.citytech.cst.s23253396.merged_apps.final_exam.controllers;
 
-import edu.citytech.cst.s23253396.final_exam.models.Summary;
-import edu.citytech.cst.s23253396.final_exam.services.SummaryService;
-import edu.citytech.cst.s23253396.final_exam.services.implementations.SummaryServiceImplementation;
+import edu.citytech.cst.s23253396.merged_apps.final_exam.models.Summary;
+import edu.citytech.cst.s23253396.merged_apps.final_exam.services.SummaryService;
+import edu.citytech.cst.s23253396.merged_apps.final_exam.services.implementations.SummaryServiceImplementation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,10 +15,7 @@ import javafx.scene.control.*;
 
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainViewController implements Initializable {
 
@@ -79,21 +76,25 @@ public class MainViewController implements Initializable {
         this.days.getData().clear();
         this.tableView.getItems().clear();
 
-        this.tableView.getItems().addAll(this.summaryService.getSummary(year, this.connectionStatus));
+        List<Summary> summaries = this.summaryService.getSummary(year, this.connectionStatus);
 
-        this.summaryService.getSummary(year, this.connectionStatus).forEach(summary -> {
-            this.addBarChartData(summary.getDay(), summary.getTotal(), this.generateRandomColor(), dayNames, styles);
-        });
+        if (!summaries.isEmpty()) {
+            this.tableView.getItems().addAll(summaries);
 
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            summaries.forEach(summary -> {
+                this.addBarChartData(summary.getDay(), summary.getTotal(), this.generateRandomColor(), dayNames, styles);
+            });
+
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
 
-        this.total.setText(decimalFormat.format(this.summaryService.calculateTotal(year)));
-        this.average.setText(decimalFormat.format(this.summaryService.calculateAverage(year)));
-        this.max.setText(decimalFormat.format(this.summaryService.calculateMax(year)));
-        this.min.setText(decimalFormat.format(this.summaryService.calculateMin(year)));
+            this.total.setText(decimalFormat.format(this.summaryService.calculateTotal(year)));
+            this.average.setText(decimalFormat.format(this.summaryService.calculateAverage(year)));
+            this.max.setText(decimalFormat.format(this.summaryService.calculateMax(year)));
+            this.min.setText(decimalFormat.format(this.summaryService.calculateMin(year)));
 
-        this.populateBarChart(dayNames, styles);
+            this.populateBarChart(dayNames, styles);
+        }
     }
 
     private void addBarChartData(String fruitName, Double numberOfPeople, String barColor, XYChart.Series<String, Double> fruits, HashMap<String, String> styles) {

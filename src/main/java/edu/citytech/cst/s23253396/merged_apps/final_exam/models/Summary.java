@@ -1,4 +1,4 @@
-package edu.citytech.cst.s23253396.final_exam.models;
+package edu.citytech.cst.s23253396.merged_apps.final_exam.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -27,6 +27,7 @@ java --module-path **/path/to/javafx-sdk-15.0.1/lib**
 ## Technologies used to build this project:
 * Java 16
 * Junit 5
+* Project Lombok
 * Maven
 * FXML
 * JavaFX
@@ -58,5 +59,8 @@ java --module-path **/path/to/javafx-sdk-15.0.1/lib**
 * updateReward = `PUT http://localhost:3613/customer/api/update/reward/{id}`
 * getTaxToPay = `GET http://localhost:3613/customer/api/tax/preview/{id}`
 * updateTaxToPay = `PUT http://localhost:3613/customer/api/tax/{id}`
+
+#### Final Exam App:
+* getSummaries = `GET http://localhost:9215/api/summary/year/:year`
 
 ## Disclaimer:

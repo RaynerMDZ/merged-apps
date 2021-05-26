@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class AbcCounterServiceJsonImpl implements AbcCounterService {
             return Arrays.asList(JSONGet.submitGet(this.MODE_ABC, Character[].class));
         }
 
-        throw new RuntimeException("Connection for: " + this.MODE_ABC + " not available!");
+        return new ArrayList<>();
     }
 
     @Override
@@ -42,7 +43,7 @@ public class AbcCounterServiceJsonImpl implements AbcCounterService {
             return Arrays.asList(JSONGet.submitGet(this.MODE_CBA, Character[].class));
         }
 
-        throw new RuntimeException("Connection for: " + this.MODE_CBA+ " not available!");
+        return new ArrayList<>();
     }
 
     @Override
@@ -51,7 +52,7 @@ public class AbcCounterServiceJsonImpl implements AbcCounterService {
             return Arrays.asList(JSONGet.submitGet(this.MODE_AaBbCc, String[].class));
         }
 
-        throw new RuntimeException("Connection for: " + this.MODE_AaBbCc + " not available!");
+        return new ArrayList<>();
     }
 
     @Override
@@ -60,7 +61,7 @@ public class AbcCounterServiceJsonImpl implements AbcCounterService {
             return Arrays.asList(JSONGet.submitGet(this.MODE_123, Integer[].class));
         }
 
-        throw new RuntimeException("Connection for: " + this.MODE_123 + " not available!");
+        return new ArrayList<>();
     }
 
     @Override
@@ -69,7 +70,7 @@ public class AbcCounterServiceJsonImpl implements AbcCounterService {
             return Arrays.asList(JSONGet.submitGet(this.MODE_321, Integer[].class));
         }
 
-        throw new RuntimeException("Connection for: " + this.MODE_321 + " not available!");
+        return new ArrayList<>();
     }
 
     @Override
@@ -78,7 +79,7 @@ public class AbcCounterServiceJsonImpl implements AbcCounterService {
             return Arrays.asList(JSONGet.submitGet(this.MODE_369, Integer[].class));
         }
 
-        throw new RuntimeException("Connection for: " + this.MODE_369 + " not available!");
+        return new ArrayList<>();
     }
 
     @Override
@@ -156,7 +157,7 @@ public class AbcCounterServiceJsonImpl implements AbcCounterService {
 
     private boolean getConnection() {
         try {
-            Socket socket = new Socket("localhost", 3613);
+            Socket socket = new Socket("localhost", 8080);
             return true;
         } catch (ConnectException | UnknownHostException e) {
             return false;

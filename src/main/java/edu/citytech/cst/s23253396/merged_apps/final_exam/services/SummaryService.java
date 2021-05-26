@@ -1,6 +1,6 @@
-package edu.citytech.cst.s23253396.final_exam.services;
+package edu.citytech.cst.s23253396.merged_apps.final_exam.services;
 
-import edu.citytech.cst.s23253396.final_exam.models.Summary;
+import edu.citytech.cst.s23253396.merged_apps.final_exam.models.Summary;
 import javafx.scene.control.Label;
 
 import java.util.List;

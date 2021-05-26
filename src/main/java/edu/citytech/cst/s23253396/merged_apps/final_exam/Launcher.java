@@ -1,4 +1,4 @@
-package edu.citytech.cst.s23253396.final_exam;
+package edu.citytech.cst.s23253396.merged_apps.final_exam;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

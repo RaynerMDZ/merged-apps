@@ -1,8 +1,8 @@
-package edu.citytech.cst.s23253396.final_exam.services.implementations;
+package edu.citytech.cst.s23253396.merged_apps.final_exam.services.implementations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.citytech.cst.s23253396.final_exam.models.Summary;
-import edu.citytech.cst.s23253396.final_exam.services.SummaryService;
+import edu.citytech.cst.s23253396.merged_apps.final_exam.models.Summary;
+import edu.citytech.cst.s23253396.merged_apps.final_exam.services.SummaryService;
 import javafx.scene.control.Label;
 
 import java.io.IOException;

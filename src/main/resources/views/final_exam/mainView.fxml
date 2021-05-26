@@ -11,12 +11,12 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.cst.s23253396.final_exam.controllers.MainViewController">
+<AnchorPane prefHeight="800.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.cst.s23253396.merged_apps.final_exam.controllers.MainViewController">
    <children>
-      <Label layoutX="34.0" layoutY="95.0" text="Search By Year :" />
-      <ChoiceBox fx:id="yearChoiceBox" layoutX="144.0" layoutY="90.0" prefWidth="150.0" />
-      <Button layoutX="323.0" layoutY="90.0" mnemonicParsing="false" onAction="#search" text="Search" />
-      <BarChart fx:id="days" layoutX="24.0" layoutY="158.0" prefHeight="587.0" prefWidth="637.0" title="Final Exam">
+      <Label layoutX="34.0" layoutY="38.0" text="Search By Year :" />
+      <ChoiceBox fx:id="yearChoiceBox" layoutX="144.0" layoutY="33.0" prefWidth="150.0" />
+      <Button layoutX="323.0" layoutY="33.0" mnemonicParsing="false" onAction="#search" text="Search" />
+      <BarChart fx:id="days" layoutX="24.0" layoutY="101.0" prefHeight="587.0" prefWidth="637.0" title="Final Exam">
         <xAxis>
           <CategoryAxis label="Day Name" side="BOTTOM" fx:id="xAxisFruits" />
         </xAxis>
@@ -24,7 +24,7 @@
           <NumberAxis fx:id="yAxisNumberOfPeople" label="Number of People" side="LEFT" />
         </yAxis>
       </BarChart>
-      <TableView fx:id="tableView" layoutX="685.0" layoutY="158.0" prefHeight="431.0" prefWidth="301.0">
+      <TableView fx:id="tableView" layoutX="685.0" layoutY="101.0" prefHeight="431.0" prefWidth="301.0">
         <columns>
             <TableColumn prefWidth="100.0" text="No">
                 <cellValueFactory><PropertyValueFactory property="dayNumber" /></cellValueFactory>
@@ -39,15 +39,15 @@
             </TableColumn>
         </columns>
       </TableView>
-      <Label layoutX="685.0" layoutY="624.0" text="Total :" />
-      <Label layoutX="685.0" layoutY="657.0" text="Average :" />
-      <Label layoutX="685.0" layoutY="689.0" text="Max :" />
-      <Label layoutX="685.0" layoutY="723.0" text="Min :" />
-      <Label fx:id="total" layoutX="757.0" layoutY="624.0" text="0.00" />
-      <Label fx:id="average" layoutX="757.0" layoutY="657.0" text="0.00" />
-      <Label fx:id="max" layoutX="757.0" layoutY="689.0" text="0.00" />
-      <Label fx:id="min" layoutX="757.0" layoutY="722.0" text="0.00" />
-      <Label layoutX="64.0" layoutY="762.0" text="Connection Status:" />
-      <Label fx:id="connectionStatus" layoutX="174.0" layoutY="763.0" text="IDLE" />
+      <Label layoutX="685.0" layoutY="567.0" text="Total :" />
+      <Label layoutX="685.0" layoutY="600.0" text="Average :" />
+      <Label layoutX="685.0" layoutY="632.0" text="Max :" />
+      <Label layoutX="685.0" layoutY="666.0" text="Min :" />
+      <Label fx:id="total" layoutX="757.0" layoutY="567.0" text="0.00" />
+      <Label fx:id="average" layoutX="757.0" layoutY="600.0" text="0.00" />
+      <Label fx:id="max" layoutX="757.0" layoutY="632.0" text="0.00" />
+      <Label fx:id="min" layoutX="757.0" layoutY="665.0" text="0.00" />
+      <Label layoutX="64.0" layoutY="717.0" text="Connection Status:" />
+      <Label fx:id="connectionStatus" layoutX="174.0" layoutY="718.0" text="IDLE" />
    </children>
 </AnchorPane>

@@ -79,13 +79,15 @@ public class AbcCounterController implements Initializable {
         this.fpCounter.getChildren().clear();
         this.choiceBoxABC();
 
-        // Iterate over the list with the alphabet
-        for (Character abc : this.jsonService.countABC()) {
-            var label = new Label(abc.toString());
-            // Add style to the label.
-            label.getStyleClass().add("displayLabel");
-            // Add the label to the flow pane.
-            this.fpCounter.getChildren().add(label);
+        if (!this.jsonService.countABC().isEmpty()) {
+            // Iterate over the list with the alphabet
+            for (Character abc : this.jsonService.countABC()) {
+                var label = new Label(abc.toString());
+                // Add style to the label.
+                label.getStyleClass().add("displayLabel");
+                // Add the label to the flow pane.
+                this.fpCounter.getChildren().add(label);
+            }
         }
     }
 
@@ -96,13 +98,15 @@ public class AbcCounterController implements Initializable {
         this.fpCounter.getChildren().clear();
         this.choiceBoxABC();
 
-        // Iterate over the list with the alphabet
-        for (Character abc : this.jsonService.countCBA()) {
-            var label = new Label(abc.toString());
-            // Add style to the label.
-            label.getStyleClass().add("displayLabel");
-            // Add the label to the flow pane.
-            this.fpCounter.getChildren().add(label);
+        if (!this.jsonService.countCBA().isEmpty()) {
+            // Iterate over the list with the alphabet
+            for (Character abc : this.jsonService.countCBA()) {
+                var label = new Label(abc.toString());
+                // Add style to the label.
+                label.getStyleClass().add("displayLabel");
+                // Add the label to the flow pane.
+                this.fpCounter.getChildren().add(label);
+            }
         }
     }
 
@@ -115,14 +119,16 @@ public class AbcCounterController implements Initializable {
 
         // Iterate over the list with the alphabet
 
-        this.jsonService.countAaBbCc().forEach((string) -> {
-            var label = new Label(string);
-            // Add style to the label.
-            label.getStyleClass().add("displayLabel-bigger");
-            // Add the label to the flow pane.
-            this.fpCounter.getChildren().add(label);
+        if (!this.jsonService.countAaBbCc().isEmpty()) {
+            this.jsonService.countAaBbCc().forEach((string) -> {
+                var label = new Label(string);
+                // Add style to the label.
+                label.getStyleClass().add("displayLabel-bigger");
+                // Add the label to the flow pane.
+                this.fpCounter.getChildren().add(label);
 
-        });
+            });
+        }
     }
 
     private void choiceBoxABC() {
@@ -223,13 +229,15 @@ public class AbcCounterController implements Initializable {
         this.count.setText("Count is: 0");
         this.choiceBox123();
 
-        // Iterate over 1-50.
-        for (Integer number : jsonService.count123()) {
-            var label = new Label(number.toString());
-            // Add style to the label.
-            label.getStyleClass().add("displayLabel-123");
-            // Add the label to the flow pane.
-            this.fpCounter.getChildren().add(label);
+        if (!this.jsonService.count123().isEmpty()) {
+            // Iterate over 1-50.
+            for (Integer number : jsonService.count123()) {
+                var label = new Label(number.toString());
+                // Add style to the label.
+                label.getStyleClass().add("displayLabel-123");
+                // Add the label to the flow pane.
+                this.fpCounter.getChildren().add(label);
+            }
         }
     }
 
@@ -240,12 +248,14 @@ public class AbcCounterController implements Initializable {
         this.count.setText("Count is: 0");
         this.choiceBox123();
 
-        for (Integer number : jsonService.count321()) {
-            var label = new Label(number.toString());
-            // Add style to the label.
-            label.getStyleClass().add("displayLabel-123");
-            // Add the label to the flow pane.
-            this.fpCounter.getChildren().add(label);
+        if (!this.jsonService.count321().isEmpty()) {
+            for (Integer number : jsonService.count321()) {
+                var label = new Label(number.toString());
+                // Add style to the label.
+                label.getStyleClass().add("displayLabel-123");
+                // Add the label to the flow pane.
+                this.fpCounter.getChildren().add(label);
+            }
         }
     }
 
@@ -256,12 +266,14 @@ public class AbcCounterController implements Initializable {
         this.count.setText("Count is: 0");
         this.choiceBox123();
 
-        for (Integer number : jsonService.count369()) {
-            var label = new Label(number.toString());
-            // Add style to the label.
-            label.getStyleClass().add("displayLabel-123");
-            // Add the label to the flow pane.
-            this.fpCounter.getChildren().add(label);
+        if (!this.jsonService.count369().isEmpty()) {
+            for (Integer number : jsonService.count369()) {
+                var label = new Label(number.toString());
+                // Add style to the label.
+                label.getStyleClass().add("displayLabel-123");
+                // Add the label to the flow pane.
+                this.fpCounter.getChildren().add(label);
+            }
         }
     }
 
